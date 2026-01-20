@@ -15,7 +15,7 @@ class Main {
 
 		try {
 			Class.forName ("org.postgresql.Driver");
-			System.out.println ("Driver is Loaded and Registered");
+			System.out.println ("Driver is Loaded and Registered...");
 
 			//create the connection ...
 			Connection con = DriverManager.getConnection (url, username, password);
@@ -24,6 +24,7 @@ class Main {
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.fillInStackTrace ();
+
 		}
 
 
