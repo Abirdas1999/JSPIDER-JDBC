@@ -1,12 +1,12 @@
 package org.example;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-class Main {
-
-
-	//specification of my database ...
-	//✅protocol:database://hosting server:port number/database name
+class Update {
+	// specification of my database ...✅protocol:database://hosting server:port number/database name
 	private static final String url = "jdbc:postgresql://localhost:5432/abirdatabase";
 	private static final String username = "postgres";
 	private static final String password = "Abirdas@1999";
@@ -19,7 +19,7 @@ class Main {
 			Class.forName ("org.postgresql.Driver");
 			System.out.println ("Driver is Loaded and Registered...");
 
-			 //2️⃣---Step
+			//2️⃣---Step
 			//create the connection ...
 			Connection con = DriverManager.getConnection (url, username, password);
 			System.out.println ("Connection established...");
@@ -29,21 +29,17 @@ class Main {
 
 
 			//4️⃣--Step
-			//insert
-			String insertSql = "INSERT into students values(2,'Atif','Atif234@gmail.com','Male')";
-			st.execute (insertSql);
-
-
-
-
-
+			//update
+			String updateSql = "UPDATE students SET sname='Ram',email='abc45@gmail.com'  WHERE sid = 3";
+			int res = st.executeUpdate (updateSql);
+			if (res!=0) System.out.println ("Data Got Updated");
+//			st.execute (updateSql);
+//			st.executeUpdate (updateSql);
 
 
 			//6️⃣--Step
 			//close
-//			rs1.close ();
-		    con.close ();
-
+			con.close ();
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.fillInStackTrace ();
@@ -52,26 +48,6 @@ class Main {
 
 
 
-
-
-
-		// UPDATE
-//		String updateSql = "UPDATE students SET sname = 'Abir' WHERE sid = 1";
-//		st.executeUpdate (updateSql);
-//
-//		// READ (after update)
-//		ResultSet rs2 = st.executeQuery (selectSql);
-//		rs2.next ();
-//		System.out.println ("After update: " + rs2.getString ("sname"));
-//
-//
-//		//close all the connection
-//
-//		rs2.close ();
-//		st.close ();
-//		con.close ();
-
 	}
-
 
 }
