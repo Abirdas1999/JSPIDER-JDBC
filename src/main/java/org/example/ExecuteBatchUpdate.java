@@ -14,7 +14,7 @@ public class ExecuteBatchUpdate {
 			Class.forName ("org.postgresql.Driver");
 			System.out.println ("Driver is connected");
 
-			//step-2--create connection
+			//step-2--create connection----git
 			Connection con = DriverManager.getConnection (url);
 			System.out.println ("Connection is Established");
 
