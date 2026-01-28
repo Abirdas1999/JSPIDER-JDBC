@@ -48,7 +48,7 @@ public class ExecuteBatchUpdate {
 			pt.addBatch ();
 
 
-			//data-4
+			//data-4---->
 			pt.setString (1,"LaluAmit");
 			pt.setInt (2,13);
 
